@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Info from "./Info";
+
 
 function Contact() {
   const [contacts, setContacts] = useState([]);
@@ -22,41 +24,44 @@ function Contact() {
       lastName: "",
       number: "",
       email: "",
-    })
-    con
+    });
+    console.log(contacts);
   };
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder=""
-        name="name"
-        value={inputs.name}
-        onChange={showHandler}
-      />
-      <input
-        type="text"
-        placeholder=""
-        name="lastName"
-        value={inputs.lastName}
-        onChange={showHandler}
-      />
-      <input
-        type="number"
-        placeholder=""
-        name="number"
-        value={inputs.number}
-        onChange={showHandler}
-      />
-      <input
-        type="email"
-        placeholder=""
-        name="email"
-        value={inputs.email}
-        onChange={showHandler}
-      />
-      <button onClick={addHandler}>Add</button>
+      <div>
+        <input
+          type="text"
+          placeholder=""
+          name="name"
+          value={inputs.name}
+          onChange={showHandler}
+        />
+        <input
+          type="text"
+          placeholder=""
+          name="lastName"
+          value={inputs.lastName}
+          onChange={showHandler}
+        />
+        <input
+          type="number"
+          placeholder=""
+          name="number"
+          value={inputs.number}
+          onChange={showHandler}
+        />
+        <input
+          type="email"
+          placeholder=""
+          name="email"
+          value={inputs.email}
+          onChange={showHandler}
+        />
+        <button onClick={addHandler}>Add</button>
+      </div>
+      <Info data={contacts}/>
     </div>
   );
 }
