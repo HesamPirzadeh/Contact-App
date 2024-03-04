@@ -1,6 +1,29 @@
 import { useState } from "react";
 import Info from "./Info";
 
+const data = [
+  {
+    type: "text",
+    placeholder: "Name",
+    name: "name",
+  },
+  {
+    type: "text",
+    placeholder: "Last Name",
+    name: "lastName",
+  },
+  {
+    type: "number",
+    placeholder: "Phone Number",
+    name: "number",
+  },
+  {
+    type: "email",
+    placeholder: "Email",
+    name: "email",
+  },
+];
+
 function Contact() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
@@ -36,34 +59,16 @@ function Contact() {
   return (
     <div>
       <div>
-        <input
-          type="text"
-          placeholder=""
-          name="name"
-          value={inputs.name}
-          onChange={showHandler}
-        />
-        <input
-          type="text"
-          placeholder=""
-          name="lastName"
-          value={inputs.lastName}
-          onChange={showHandler}
-        />
-        <input
-          type="number"
-          placeholder=""
-          name="number"
-          value={inputs.number}
-          onChange={showHandler}
-        />
-        <input
-          type="email"
-          placeholder=""
-          name="email"
-          value={inputs.email}
-          onChange={showHandler}
-        />
+        {data.map((input, index) => (
+          <input
+            key={index}
+            type={input.type}
+            placeholder={input.placeholder}
+            name={input.name}
+            value={inputs[input.name]}
+            onChange={showHandler}
+          />
+        ))}
         <button onClick={addHandler}>Add</button>
       </div>
       <div>{<p>{alert}</p>}</div>
