@@ -1,33 +1,14 @@
 import { useState } from "react";
-import Info from "./Info";
+import data from "../constant/data";
+import Detail from "./Detail";
+import { v4 } from "uuid";
 
-const data = [
-  {
-    type: "text",
-    placeholder: "Name",
-    name: "name",
-  },
-  {
-    type: "text",
-    placeholder: "Last Name",
-    name: "lastName",
-  },
-  {
-    type: "number",
-    placeholder: "Phone Number",
-    name: "number",
-  },
-  {
-    type: "email",
-    placeholder: "Email",
-    name: "email",
-  },
-];
 
 function Contact() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
   const [inputs, setInputs] = useState({
+    id:"",
     name: "",
     lastName: "",
     number: "",
@@ -45,8 +26,9 @@ function Contact() {
       setAlert("please enter valid data");
       return;
     }
+    const newContact = {...inputs,id: v4()}
     setAlert("");
-    setContacts((contacts) => [...contacts, inputs]);
+    setContacts((contacts) => [...contacts, newContact]);
     setInputs({
       name: "",
       lastName: "",
@@ -73,7 +55,7 @@ function Contact() {
       </div>
       <div>{<p>{alert}</p>}</div>
 
-      <Info data={contacts} />
+      <Detail data={contacts}/>
     </div>
   );
 }
