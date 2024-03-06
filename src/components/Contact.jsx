@@ -57,7 +57,7 @@ function Contact() {
         ))}
         <button onClick={addHandler}>Add</button>
       </div>
-      <div className={styles.alert}>{<p>{alert}</p>}</div>
+      <div className={styles.alert}>{alert && <p>{alert}</p>}</div>
 
       <Detail data={contacts} deleteHandler={deleteHandler} />
     </div>

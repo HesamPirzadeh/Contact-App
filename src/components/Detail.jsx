@@ -1,20 +1,21 @@
 import React from "react";
 import ContactList from "./ContactList";
+import styles from "./Detail.module.css";
 
 function Detail({ data , deleteHandler}) {
-  console.log(data.id);
+  console.log(data.id)
 
   return (
-    <div>
+    <div className={styles.container}>
       <h3>Contact List</h3>
       {data.length ? (
-        <ul>
+        <ul className={styles.contacts}>
           {data.map((contact) => (
             <ContactList key={contact.id} list={contact}  deleteHandler={deleteHandler} />
           ))}
         </ul>
       ) : (
-        <p>no contact yet</p>
+        <p className={styles.message}>no contact yet</p>
       )}
     </div>
   );

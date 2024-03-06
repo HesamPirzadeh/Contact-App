@@ -1,10 +1,10 @@
-
+import styles from "./ContactList.module.css";
 
 function ContactList({list : {name,lastName,email,number,id}, deleteHandler}) {
   
   return (
     <div>
-        <li >
+        <li className={styles.item}>
               <p>
                 {name} {lastName}
               </p>
