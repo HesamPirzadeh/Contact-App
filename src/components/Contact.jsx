@@ -3,12 +3,11 @@ import data from "../constant/data";
 import Detail from "./Detail";
 import { v4 } from "uuid";
 
-
 function Contact() {
   const [alert, setAlert] = useState("");
   const [contacts, setContacts] = useState([]);
   const [inputs, setInputs] = useState({
-    id:"",
+    id: "",
     name: "",
     lastName: "",
     number: "",
@@ -26,7 +25,7 @@ function Contact() {
       setAlert("please enter valid data");
       return;
     }
-    const newContact = {...inputs,id: v4()}
+    const newContact = { ...inputs, id: v4() };
     setAlert("");
     setContacts((contacts) => [...contacts, newContact]);
     setInputs({
@@ -38,6 +37,10 @@ function Contact() {
     console.log(contacts);
   };
 
+  const deleteHandler = (id) => {
+    const newContact = contacts.filter((item) => item.id !== id);
+    setContacts(newContact);
+  };
   return (
     <div>
       <div>
@@ -55,7 +58,7 @@ function Contact() {
       </div>
       <div>{<p>{alert}</p>}</div>
 
-      <Detail data={contacts}/>
+      <Detail data={contacts} deleteHandler={deleteHandler} />
     </div>
   );
 }
