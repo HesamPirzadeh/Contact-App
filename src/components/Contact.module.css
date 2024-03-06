@@ -22,7 +22,7 @@
   margin: 10px;
   border: 2px solid #eaeaea;
   border-radius: 10px;
-  color: #304ffe25;
+  color: grey;
   font-size: 1rem;
 }
 
@@ -44,27 +44,25 @@
   box-shadow: #0c2ad486 0px 7px 29px 0px;
 }
 
-
-.alert{
-    width: 100%;
-    height: 40px;
-    margin: 5px 0 25px;
- 
+.alert {
+  width: 100%;
+  height: 40px;
+  margin: 5px 0 25px;
 }
 
-.alert p{
-    background-color: #ffebee;
-    width: 100%;
-    color: #f44336;
-    padding: 10px;
-    border-radius:10px ;
+.alert p {
+  background-color: #ffebee;
+  width: 100%;
+  color: #f44336;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-@media (max-width :500px) {
-    .form input{
-        width: 95%;
-    }
-    .form button{
-        width: 90%;
-    }
+@media (max-width: 500px) {
+  .form input {
+    width: 95%;
+  }
+  .form button {
+    width: 90%;
+  }
 }
